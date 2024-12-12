@@ -30,7 +30,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
 
-        View view = LayoutInflater.from(context).inflate(com.kutubuddin.logic_todo_app.R.layout.todo_card, parent, false);
+        View view = LayoutInflater.from(context).inflate(com.kutubuddin.logic_todo_app.R.layout.todo_item, parent, false);
         return new ViewHolder(view);
 
     }

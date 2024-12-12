@@ -13,7 +13,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.kutubuddin.logic_todo_app.api.PostApi;
+
+import com.kutubuddin.logic_todo_app.api.TodoApi;
 import com.kutubuddin.logic_todo_app.apiClient.ApiClient;
 import com.kutubuddin.logic_todo_app.model.TodoModel;
 
@@ -100,7 +101,7 @@ public class PostActivity extends AppCompatActivity {
         TodoModel todo = new TodoModel(0, title, description, date.getText().toString(), selectedTodotype, selectedPriority);
 
         // Call API to submit the todo
-        PostApi api = ApiClient.getRetrofit().create(PostApi.class);
+        TodoApi api = ApiClient.getRetrofit().create(TodoApi.class);
         Call<Void> call = api.createTodo(todo);
         call.enqueue(new Callback<Void>() {
             @Override

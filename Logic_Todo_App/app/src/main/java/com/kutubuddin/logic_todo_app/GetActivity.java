@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kutubuddin.logic_todo_app.adapter.TodoAdapter;
-import com.kutubuddin.logic_todo_app.api.GetApi;
+import com.kutubuddin.logic_todo_app.api.TodoApi;
 import com.kutubuddin.logic_todo_app.apiClient.ApiClient;
 import com.kutubuddin.logic_todo_app.model.TodoModel;
 
@@ -42,11 +42,11 @@ public class GetActivity extends AppCompatActivity {
             return insets;
         });
 
-        notificationList=findViewById(R.id.noticeList);
+        notificationList=findViewById(R.id.todoListRecyclerView);
 
         notificationList.setLayoutManager(new LinearLayoutManager(this));
 
-        GetApi todoApi = ApiClient.getRetrofit().create(GetApi.class);
+        TodoApi todoApi = ApiClient.getRetrofit().create(TodoApi.class);
 
         Call<List<TodoModel>> call = todoApi.getTodo();
 
@@ -72,7 +72,7 @@ public class GetActivity extends AppCompatActivity {
         });
 
         // FloatingActionButton click listener
-        FloatingActionButton fabPost = findViewById(R.id.fabPost);
+        FloatingActionButton fabPost = findViewById(R.id.fabAddTodo);
         fabPost.setOnClickListener(view -> {
             // Navigate to PostActivity when FAB is clicked
             Intent intent = new Intent(GetActivity.this, PostActivity.class);
