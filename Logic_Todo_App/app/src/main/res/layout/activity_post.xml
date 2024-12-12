@@ -6,7 +6,17 @@
     android:padding="16dp"
     android:background="@color/lightGray">
 
+
     <!-- Title -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:title="Todo List"
+        android:titleTextColor="@android:color/black" />
+
+
     <EditText
         android:id="@+id/editTextTitle"
         android:layout_width="match_parent"
