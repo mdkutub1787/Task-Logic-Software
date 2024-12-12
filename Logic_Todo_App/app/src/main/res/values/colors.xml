@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Basic Colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lightGray">#F5F5F5</color>
     <color name="green">#4CAF50</color>
+
+    <!-- Additional Colors -->
+    <color name="blue">#2196F3</color>
+    <color name="red">#F44336</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="gray">#9E9E9E</color>
+    <color name="darkGray">#616161</color>
+    <color name="lightBlue">#03A9F4</color>
+    <color name="orange">#FF9800</color>
+    <color name="purple">#9C27B0</color>
+    <color name="brown">#795548</color>
+    <color name="pink">#E91E63</color>
+    <color name="teal">#009688</color>
+    <color name="amber">#FFC107</color>
+
+    <!-- White Variants -->
+    <color name="offWhite">#F1F1F1</color>
+    <color name="lightWhite">#FAFAFA</color>
+
+    <!-- Darker Shades -->
+    <color name="darkGreen">#388E3C</color>
+    <color name="darkBlue">#1976D2</color>
+    <color name="darkRed">#D32F2F</color>
 
 </resources>
