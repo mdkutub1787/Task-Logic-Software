@@ -70,20 +70,23 @@
 
         <RadioButton
             android:id="@+id/radioPriorityHigh"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
             android:text="Priority High" />
 
         <RadioButton
             android:id="@+id/radioPriorityMedium"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
             android:text="Priority Medium" />
 
         <RadioButton
             android:id="@+id/radioPriorityLow"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
             android:text="Priority Low" />
     </RadioGroup>
 
