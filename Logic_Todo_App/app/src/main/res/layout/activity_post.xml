@@ -11,7 +11,8 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_height="50dp"
         android:background="@color/white"
         android:title="Todo List"
         android:titleTextColor="@android:color/black" />
@@ -20,7 +21,7 @@
     <EditText
         android:id="@+id/editTextTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="Title"
         android:inputType="text"
         android:background="@drawable/edittext_background"
@@ -55,9 +56,9 @@
     <Spinner
         android:id="@+id/spinnerTodotype"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:background="@drawable/spinner_background"
         android:padding="10dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="16dp" />
 
     <!-- RadioGroup for Priority -->
