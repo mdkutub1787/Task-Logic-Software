@@ -8,7 +8,7 @@ public class TodoModel {
     private  String titel;
 
     private  String description;
-    private Date date;
+    private String date;
     private  String todotype;
     private  String priority;
 
@@ -16,7 +16,7 @@ public class TodoModel {
 
     }
 
-    public TodoModel(int id, String titel, String description, Date date, String todotype, String priority) {
+    public TodoModel(int id, String titel, String description, String date, String todotype, String priority) {
         this.id = id;
         this.titel = titel;
         this.description = description;
@@ -50,11 +50,11 @@ public class TodoModel {
     }
 
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
