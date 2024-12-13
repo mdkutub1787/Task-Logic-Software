@@ -80,26 +80,33 @@ public class PostActivity extends AppCompatActivity {
         String description = editTextDescription.getText().toString().trim();
         String selectedTodotype = spinnerTodotype.getSelectedItem().toString();
 
-        // Get selected priority from RadioGroup
+        // Validate Todo type
+        if (selectedTodotype.equals("Select Todo Type")) {
+            showToast("Please select a valid Todo type");
+            return;
+        }
+
+        // Validate priority selection
         int selectedPriorityId = radioGroupPriority.getCheckedRadioButtonId();
         String selectedPriority = "";
         if (selectedPriorityId != -1) {
             RadioButton selectedPriorityButton = findViewById(selectedPriorityId);
             selectedPriority = selectedPriorityButton.getText().toString();
         } else {
-            Toast.makeText(this, "Please select a priority", Toast.LENGTH_SHORT).show();
+            showToast("Please select a priority");
             return;
         }
 
-        // Ensure fields are filled
+        // Ensure title and description are filled
         if (title.isEmpty() || description.isEmpty()) {
-            Toast.makeText(this, "Title and Description are required", Toast.LENGTH_SHORT).show();
+            showToast("Title and Description are required");
             return;
         }
 
+        // Validate date
         String selectedDate = date.getText().toString();
         if (selectedDate.isEmpty()) {
-            Toast.makeText(this, "Please select a date", Toast.LENGTH_SHORT).show();
+            showToast("Please select a date");
             return;
         }
 
@@ -113,21 +120,28 @@ public class PostActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(PostActivity.this, "Todo Created Successfully", Toast.LENGTH_SHORT).show();
-                    // Navigate back to GetActivity after successful submission
-                    Intent intent = new Intent(PostActivity.this, GetActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    finish();
+                    showToast("Todo Created Successfully");
+                    navigateToGetActivity();
                 } else {
-                    Toast.makeText(PostActivity.this, "Failed to create Todo", Toast.LENGTH_SHORT).show();
+                    showToast("Failed to create Todo");
                 }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(PostActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                showToast("Error: " + t.getMessage());
             }
         });
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(PostActivity.this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void navigateToGetActivity() {
+        Intent intent = new Intent(PostActivity.this, GetActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 }
