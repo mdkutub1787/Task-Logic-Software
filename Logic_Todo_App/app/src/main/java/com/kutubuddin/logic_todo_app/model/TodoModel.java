@@ -12,7 +12,6 @@ public class TodoModel {
     private  String priority;
 
     public TodoModel() {
-
     }
 
     public TodoModel(int id, String titel, String description, String date, String todotype, String priority) {
@@ -47,7 +46,6 @@ public class TodoModel {
     public void setDescription(String description) {
         this.description = description;
     }
-
 
     public String getDate() {
         return date;
