@@ -45,9 +45,9 @@ public class GetActivity extends AppCompatActivity {
 
         todoList.setLayoutManager(new LinearLayoutManager(this));
 
-        TodoApi notificationApi = ApiClient.getRetrofit().create(TodoApi.class);
+        TodoApi todoApi = ApiClient.getRetrofit().create(TodoApi.class);
 
-        Call<List<TodoModel>> call = notificationApi.getTodo();
+        Call<List<TodoModel>> call = todoApi.getTodo();
 
 
         call.enqueue(new Callback<List<TodoModel>>() {
@@ -55,10 +55,10 @@ public class GetActivity extends AppCompatActivity {
             public void onResponse(Call<List<TodoModel>> call, Response<List<TodoModel>> response) {
 
                 if (response.isSuccessful()) {
-                    List<TodoModel> noticeList = response.body();
+                    List<TodoModel> todoModelList = response.body();
 
                     // Set up RecyclerView with the adapter
-                    todoAdapter = new TodoAdapter(noticeList, getApplicationContext() );
+                    todoAdapter = new TodoAdapter(todoModelList, getApplicationContext() );
                     todoList.setAdapter(todoAdapter);
                 }
 
