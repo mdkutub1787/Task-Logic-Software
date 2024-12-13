@@ -25,7 +25,6 @@
                 android:id="@+id/headerTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="Create To-Do Form"
                 android:text="Create To-Do Form"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
