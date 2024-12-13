@@ -1,120 +1,125 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/lightGray">
+    android:fillViewport="true">
 
-    <!-- Header Section -->
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/green"
-        android:padding="10dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="center">
-
-        <!-- Header Text -->
-        <TextView
-            android:id="@+id/headerTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Create To-Do Form"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:contentDescription="Create To-Do Form" />
-    </LinearLayout>
-
-
-    <!-- Title -->
-    <EditText
-        android:id="@+id/editTextTitle"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Title"
-        android:inputType="text"
-        android:background="@drawable/edittext_background"
-        android:padding="10dp"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Description -->
-    <EditText
-        android:id="@+id/editTextDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Description"
-        android:inputType="textMultiLine"
-        android:lines="5"
-        android:background="@drawable/edittext_background"
-        android:padding="10dp"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Date Field -->
-    <EditText
-        android:id="@+id/date"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Select Date"
-        android:focusable="false"
-        android:clickable="true"
-        android:padding="10dp"
-        android:background="@drawable/edittext_background"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Dropdown for Todo Type -->
-    <Spinner
-        android:id="@+id/spinnerTodotype"
-        android:layout_width="match_parent"
-        android:background="@drawable/spinner_background"
-        android:padding="10dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="16dp" />
-
-    <!-- RadioGroup for Priority -->
-    <RadioGroup
-        android:id="@+id/radioGroupPriority"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/lightGray"
         android:orientation="vertical"
-        android:layout_marginBottom="16dp">
+        android:padding="16dp">
 
-        <RadioButton
-            android:id="@+id/radioPriorityHigh"
+        <!-- Header Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/green"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <!-- Header Text -->
+            <TextView
+                android:id="@+id/headerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Create To-Do Form"
+                android:text="Create To-Do Form"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <!-- Title -->
+        <EditText
+            android:id="@+id/editTextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext_background"
+            android:hint="Title"
+            android:inputType="text"
+            android:padding="10dp" />
+
+        <!-- Description -->
+        <EditText
+            android:id="@+id/editTextDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:background="@drawable/edittext_background"
-            android:text="Priority High" />
+            android:hint="Description"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:padding="10dp" />
 
-        <RadioButton
-            android:id="@+id/radioPriorityMedium"
+        <!-- Date Field -->
+        <EditText
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext_background"
+            android:clickable="true"
+            android:focusable="false"
+            android:hint="Select Date"
+            android:padding="10dp" />
+
+        <!-- Dropdown for Todo Type -->
+        <Spinner
+            android:id="@+id/spinnerTodotype"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/spinner_background"
+            android:padding="10dp" />
+
+        <!-- RadioGroup for Priority -->
+        <RadioGroup
+            android:id="@+id/radioGroupPriority"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/edittext_background"
-            android:text="Priority Medium" />
+            android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/radioPriorityLow"
+            <RadioButton
+                android:id="@+id/radioPriorityHigh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:text="Priority High" />
+
+            <RadioButton
+                android:id="@+id/radioPriorityMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:text="Priority Medium" />
+
+            <RadioButton
+                android:id="@+id/radioPriorityLow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                android:text="Priority Low" />
+        </RadioGroup>
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/btnSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/edittext_background"
-            android:text="Priority Low" />
-    </RadioGroup>
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/green"
+            android:padding="15dp"
+            android:text="Save"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
-    <!-- Submit Button -->
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/green"
-        android:textColor="@android:color/white"
-        android:text="Save"
-        android:textStyle="bold"
-        android:padding="12dp"
-        android:layout_marginTop="16dp" />
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
