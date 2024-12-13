@@ -13,12 +13,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import com.kutubuddin.logic_todo_app.api.TodoApi;
 import com.kutubuddin.logic_todo_app.apiClient.ApiClient;
 import com.kutubuddin.logic_todo_app.model.TodoModel;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -98,7 +98,7 @@ public class PostActivity extends AppCompatActivity {
         }
 
         // Create TodoModel object
-        TodoModel todo = new TodoModel(0, title, description, date.getText().toString(), selectedTodotype, selectedPriority);
+        TodoModel todo = new TodoModel(0, title, description, new Date(), selectedTodotype, selectedPriority);
 
         // Call API to submit the todo
         TodoApi api = ApiClient.getRetrofit().create(TodoApi.class);
