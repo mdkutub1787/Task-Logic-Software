@@ -116,7 +116,7 @@ public class PostActivity extends AppCompatActivity {
                     Toast.makeText(PostActivity.this, "Todo Created Successfully", Toast.LENGTH_SHORT).show();
                     // Navigate back to GetActivity after successful submission
                     Intent intent = new Intent(PostActivity.this, GetActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
                 } else {
