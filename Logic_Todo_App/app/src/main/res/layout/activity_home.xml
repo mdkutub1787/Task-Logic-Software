@@ -60,7 +60,7 @@
                             android:id="@+id/btnView"
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="@dimen/_100sdp"
-                            android:src="@drawable/splash" />
+                            android:src="@drawable/logo" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -83,7 +83,7 @@
                             android:id="@+id/btnCreate"
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="@dimen/_100sdp"
-                            android:src="@drawable/splash" />
+                            android:src="@drawable/logo" />
 
                         <TextView
                             android:layout_width="wrap_content"
