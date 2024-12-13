@@ -13,6 +13,7 @@ import retrofit2.http.POST;
 
 public interface TodoApi {
 
+    // GET request to view   Todo View
     @GET("todoapps")
     Call<List<TodoModel>> getTodo();
 
