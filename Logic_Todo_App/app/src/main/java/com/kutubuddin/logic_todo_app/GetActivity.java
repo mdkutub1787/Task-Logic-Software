@@ -28,8 +28,8 @@ import retrofit2.Response;
 public class GetActivity extends AppCompatActivity {
 
 
-    private RecyclerView notificationList;
-    private TodoAdapter notificationAdapter;
+    private RecyclerView todoList;
+    private TodoAdapter todoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +42,9 @@ public class GetActivity extends AppCompatActivity {
             return insets;
         });
 
-        notificationList=findViewById(R.id.todoListRecyclerView);
+        todoList=findViewById(R.id.todoListRecyclerView);
 
-        notificationList.setLayoutManager(new LinearLayoutManager(this));
+        todoList.setLayoutManager(new LinearLayoutManager(this));
 
         TodoApi todoApi = ApiClient.getRetrofit().create(TodoApi.class);
 
@@ -59,8 +59,8 @@ public class GetActivity extends AppCompatActivity {
                     List<TodoModel> noticeList = response.body();
 
                     // Set up RecyclerView with the adapter
-                    notificationAdapter = new TodoAdapter(noticeList, getApplicationContext() );
-                    notificationList.setAdapter(notificationAdapter);
+                    todoAdapter = new TodoAdapter(noticeList, getApplicationContext() );
+                    todoList.setAdapter(todoAdapter);
                 }
 
             }
@@ -78,11 +78,6 @@ public class GetActivity extends AppCompatActivity {
             Intent intent = new Intent(GetActivity.this, PostActivity.class);
             startActivity(intent);
         });
-
-
-
-
-
 
     }
 }
