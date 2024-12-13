@@ -1,5 +1,6 @@
 package com.kutubuddin.logic_todo_app.adapter;
 
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.kutubuddin.logic_todo_app.R;
 import com.kutubuddin.logic_todo_app.model.TodoModel;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
-public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
+public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
 
     private List<TodoModel> todoList;
     private Context context;
@@ -29,31 +27,24 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.todo_item, parent, false);
+    public TodoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+
+        View view = LayoutInflater.from(context).inflate(com.kutubuddin.logic_todo_app.R.layout.todo_item, parent, false);
         return new ViewHolder(view);
+
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        TodoModel todoItem = todoList.get(position);
+    public void onBindViewHolder(@NonNull TodoAdapter.ViewHolder holder, int position) {
 
-        // Format the date
-        String formattedDate = formatDate(todoItem.getDate());
+        TodoModel todo = todoList.get(position);
+        holder.textTitle.setText(todo.getTitel());
+        holder.textDescription.setText(todo.getDescription());
+        holder.textTodotype.setText(todo.getTodotype());
+        holder.textPriority.setText(todo.getPriority());
+        holder.textDate.setText(todo.getDate());
 
-        // Set the formatted data to the views
-        holder.textTitle.setText(todoItem.getTitel());
-        holder.textDescription.setText(todoItem.getDescription());
-        holder.textTodotype.setText(todoItem.getTodotype());
-        holder.textPriority.setText(todoItem.getPriority());
-        holder.textDate.setText(formattedDate);
-    }
-
-    // Helper method to format the date
-    private String formatDate(Date date) {
-        // Format the date
-        SimpleDateFormat targetFormat = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
-        return targetFormat.format(date);
     }
 
     @Override
@@ -62,12 +53,11 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
+        TextView textDate;
         TextView textDescription;
         TextView textTitle;
         TextView textTodotype;
         TextView textPriority;
-        TextView textDate;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -77,5 +67,8 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
             textPriority = itemView.findViewById(R.id.priority);
             textDate = itemView.findViewById(R.id.date);
         }
+
+
     }
+
 }
