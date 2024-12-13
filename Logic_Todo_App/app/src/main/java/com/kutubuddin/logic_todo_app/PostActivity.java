@@ -3,8 +3,11 @@ package com.kutubuddin.logic_todo_app;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -18,7 +21,6 @@ import com.kutubuddin.logic_todo_app.apiClient.ApiClient;
 import com.kutubuddin.logic_todo_app.model.TodoModel;
 
 import java.util.Calendar;
-import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,7 +46,7 @@ public class PostActivity extends AppCompatActivity {
         radioGroupPriority = findViewById(R.id.radioGroupPriority);
         btnSubmit = findViewById(R.id.btnSubmit);
 
-        // Set up the spinner (dropdown) with values from resources
+        // Set up the spinner (dropdown) with values
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.todo_types, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -67,9 +69,9 @@ public class PostActivity extends AppCompatActivity {
         // Create DatePickerDialog
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this, (view, selectedYear, selectedMonth, selectedDay) -> {
-            // Format the date as "YYYY-MM-DD"
-            String dateString = String.format("%d-%02d-%02d", selectedYear, selectedMonth + 1, selectedDay);
-            date.setText(dateString);
+            // Format date string
+            String formattedDate = selectedYear + "-" + String.format("%02d", selectedMonth + 1) + "-" + String.format("%02d", selectedDay);
+            date.setText(formattedDate);
         }, year, month, day);
 
         // Show the dialog
@@ -87,19 +89,25 @@ public class PostActivity extends AppCompatActivity {
         if (selectedPriorityId != -1) {
             RadioButton selectedPriorityButton = findViewById(selectedPriorityId);
             selectedPriority = selectedPriorityButton.getText().toString();
-
         } else {
             Toast.makeText(this, "Please select a priority", Toast.LENGTH_SHORT).show();
             return;
         }
 
+        // Ensure fields are filled
         if (title.isEmpty() || description.isEmpty()) {
             Toast.makeText(this, "Title and Description are required", Toast.LENGTH_SHORT).show();
             return;
         }
 
+        String selectedDate = date.getText().toString();
+        if (selectedDate.isEmpty()) {
+            Toast.makeText(this, "Please select a date", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         // Create TodoModel object
-        TodoModel todo = new TodoModel(0, title, description, new Date(), selectedTodotype, selectedPriority);
+        TodoModel todo = new TodoModel(0, title, description, selectedDate, selectedTodotype, selectedPriority);
 
         // Call API to submit the todo
         TodoApi api = ApiClient.getRetrofit().create(TodoApi.class);
@@ -109,11 +117,11 @@ public class PostActivity extends AppCompatActivity {
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
                     Toast.makeText(PostActivity.this, "Todo created successfully", Toast.LENGTH_SHORT).show();
-
-                    // Navigate to GetActivity after successful creation
+                    // Navigate back to GetActivity after successful submission
                     Intent intent = new Intent(PostActivity.this, GetActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // Clear the activity stack
                     startActivity(intent);
-                    finish(); // Close the current activity
+                    finish(); // Close PostActivity
                 } else {
                     Toast.makeText(PostActivity.this, "Failed to create Todo", Toast.LENGTH_SHORT).show();
                 }
