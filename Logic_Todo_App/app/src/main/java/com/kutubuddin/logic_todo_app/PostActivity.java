@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -114,12 +113,12 @@ public class PostActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(PostActivity.this, "Todo created successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostActivity.this, "Todo Created Successfully", Toast.LENGTH_SHORT).show();
                     // Navigate back to GetActivity after successful submission
                     Intent intent = new Intent(PostActivity.this, GetActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // Clear the activity stack
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
                     startActivity(intent);
-                    finish(); // Close PostActivity
+                    finish();
                 } else {
                     Toast.makeText(PostActivity.this, "Failed to create Todo", Toast.LENGTH_SHORT).show();
                 }
