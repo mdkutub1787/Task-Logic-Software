@@ -15,9 +15,6 @@
         android:theme="@style/Theme.Logic_Todo_App"
         tools:targetApi="31" >
         <activity
-            android:name=".UpdateActivity"
-            android:exported="false" />
-        <activity
             android:name=".Home"
             android:exported="false" />
         <activity
