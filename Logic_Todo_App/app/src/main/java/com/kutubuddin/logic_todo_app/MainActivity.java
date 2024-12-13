@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
-        Animation zoomIn = AnimationUtils.loadAnimation(this, R.anim.zoom_in);
+        Animation zoomIn = AnimationUtils.loadAnimation(this, R.anim.animation_details_in);
 
         ImageView splash=findViewById(R.id.splash);
         splash.setAnimation(zoomIn);
