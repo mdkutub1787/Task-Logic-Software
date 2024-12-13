@@ -1,5 +1,6 @@
 package com.kutubuddin.logic_todo_app;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -11,13 +12,11 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.kutubuddin.logic_todo_app.adapter.TodoAdapter;
 import com.kutubuddin.logic_todo_app.api.TodoApi;
 import com.kutubuddin.logic_todo_app.apiClient.ApiClient;
 import com.kutubuddin.logic_todo_app.model.TodoModel;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 
 import java.util.List;
 
@@ -46,9 +45,9 @@ public class GetActivity extends AppCompatActivity {
 
         todoList.setLayoutManager(new LinearLayoutManager(this));
 
-        TodoApi todoApi = ApiClient.getRetrofit().create(TodoApi.class);
+        TodoApi notificationApi = ApiClient.getRetrofit().create(TodoApi.class);
 
-        Call<List<TodoModel>> call = todoApi.getTodo();
+        Call<List<TodoModel>> call = notificationApi.getTodo();
 
 
         call.enqueue(new Callback<List<TodoModel>>() {
@@ -80,4 +79,5 @@ public class GetActivity extends AppCompatActivity {
         });
 
     }
+
 }
