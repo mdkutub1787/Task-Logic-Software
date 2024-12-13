@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:background="#DFE2E2"
+        android:background="@color/green"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -24,8 +24,8 @@
             android:id="@+id/todoListHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Todo List"
-            android:textColor="@color/black"
+            android:text="To-Do  List"
+            android:textColor="@android:color/white"
             android:textStyle="bold"
             android:textSize="20sp"
             android:gravity="center" />
