@@ -39,8 +39,8 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         TodoModel notification = todoList.get(position);
-        holder.textDescription.setText(notification.getTitel());
-        holder.textTitle.setText(notification.getDescription());
+        holder.textTitle.setText(notification.getTitel());
+        holder.textDescription.setText(notification.getDescription());
         holder.textTodotype.setText(notification.getTodotype());
         holder.textPriority.setText(notification.getPriority());
         holder.textDate.setText(notification.getDate());
@@ -53,17 +53,17 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textDate;
+
         TextView textDescription;
         TextView textTitle;
         TextView textTodotype;
         TextView textPriority;
+        TextView textDate;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            textDescription=itemView.findViewById(R.id.description);
             textTitle=itemView.findViewById(R.id.title);
+            textDescription=itemView.findViewById(R.id.description);
             textTodotype=itemView.findViewById(R.id.todoType);
             textPriority=itemView.findViewById(R.id.priority);
             textDate=itemView.findViewById(R.id.date);
