@@ -44,7 +44,7 @@ public class PostActivity extends AppCompatActivity {
         radioGroupPriority = findViewById(R.id.radioGroupPriority);
         btnSubmit = findViewById(R.id.btnSubmit);
 
-        // Set up the spinner (dropdown) with values
+        // Set up the spinner (dropdown) with values from resources
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.todo_types, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -67,8 +67,8 @@ public class PostActivity extends AppCompatActivity {
         // Create DatePickerDialog
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this, (view, selectedYear, selectedMonth, selectedDay) -> {
-            // Set the selected date in the EditText
-            String dateString = selectedYear + "-" + (selectedMonth + 1) + "-" + selectedDay;
+            // Format the date as "YYYY-MM-DD"
+            String dateString = String.format("%d-%02d-%02d", selectedYear, selectedMonth + 1, selectedDay);
             date.setText(dateString);
         }, year, month, day);
 
@@ -87,6 +87,7 @@ public class PostActivity extends AppCompatActivity {
         if (selectedPriorityId != -1) {
             RadioButton selectedPriorityButton = findViewById(selectedPriorityId);
             selectedPriority = selectedPriorityButton.getText().toString();
+
         } else {
             Toast.makeText(this, "Please select a priority", Toast.LENGTH_SHORT).show();
             return;
