@@ -119,6 +119,38 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
+        <!-- Icons for Edit and Delete -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/iconDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:clickable="true"
+                android:contentDescription="Delete"
+                android:focusable="true"
+                android:onClick="onDeleteClick"
+                android:src="@drawable/ic_delete" />
+
+            <ImageView
+                android:id="@+id/iconEdit"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_edit"
+                android:contentDescription="Edit"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onEditClick" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
