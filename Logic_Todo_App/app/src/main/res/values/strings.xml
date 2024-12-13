@@ -2,6 +2,7 @@
     <string name="app_name">Logic Todo App</string>
 
     <string-array name="todo_types">
+        <item>Select Todo Type</item>
         <item>Study</item>
         <item>Outing</item>
         <item>Date</item>
