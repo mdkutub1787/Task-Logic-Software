@@ -1,12 +1,14 @@
 package com.kutubuddin.logic_todo_app.model;
 
+import java.util.Date;
+
 public class TodoModel {
 
     private  int id;
     private  String titel;
 
     private  String description;
-    private String date;
+    private Date date;
     private  String todotype;
     private  String priority;
 
@@ -14,7 +16,7 @@ public class TodoModel {
 
     }
 
-    public TodoModel(int id, String titel, String description, String date, String todotype, String priority) {
+    public TodoModel(int id, String titel, String description, Date date, String todotype, String priority) {
         this.id = id;
         this.titel = titel;
         this.description = description;
@@ -47,11 +49,12 @@ public class TodoModel {
         this.description = description;
     }
 
-    public String getDate() {
+
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
