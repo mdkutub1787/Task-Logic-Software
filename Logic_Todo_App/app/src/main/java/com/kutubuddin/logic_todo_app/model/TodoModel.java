@@ -1,6 +1,5 @@
 package com.kutubuddin.logic_todo_app.model;
 
-import java.util.Date;
 
 public class TodoModel {
 
