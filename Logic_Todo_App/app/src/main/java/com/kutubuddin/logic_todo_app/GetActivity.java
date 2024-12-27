@@ -71,7 +71,7 @@ public class GetActivity extends AppCompatActivity {
 
     // Set up RecyclerView with the TodoAdapter
     private void setupRecyclerView(List<TodoModel> todoListData) {
-        todoAdapter = new TodoAdapter(todoListData, GetActivity.this, this::onDeleteClick);
+        todoAdapter = new TodoAdapter(todoListData, GetActivity.this, this::onDeleteClick, this::onEditClick);
         todoList.setAdapter(todoAdapter);
     }
 
@@ -97,4 +97,18 @@ public class GetActivity extends AppCompatActivity {
             }
         });
     }
+
+    // Handle edit button click
+    private void onEditClick(TodoModel todo) {
+        Intent intent = new Intent(GetActivity.this, UpdateActivity.class);
+        intent.putExtra("todo_id", todo.getId());
+        intent.putExtra("todo_title", todo.getTitel());
+        intent.putExtra("todo_description", todo.getDescription());
+        intent.putExtra("todo_type", todo.getTodotype());
+        intent.putExtra("todo_priority", todo.getPriority());
+        intent.putExtra("todo_date", todo.getDate());
+        startActivity(intent);
+    }
+
 }
+
