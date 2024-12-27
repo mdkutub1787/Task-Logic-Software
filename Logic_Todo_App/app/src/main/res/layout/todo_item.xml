@@ -15,6 +15,8 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+
+
         <!-- Title -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -119,6 +121,31 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
+        <!-- Action Icons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/edit"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/edittext_background"
+                android:contentDescription="Edit"
+                android:layout_marginEnd="8dp"
+                app:tint="@color/amber" />
+
+            <ImageView
+                android:id="@+id/deleteButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/baseline_auto_delete_24"
+                android:contentDescription="Delete"
+                app:tint="@color/red" />
+        </LinearLayout>
 
     </LinearLayout>
 
