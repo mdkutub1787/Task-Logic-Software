@@ -29,4 +29,9 @@ public interface TodoApi {
     // PUT request to update a Todo by ID
     @PUT("todoapps/{id}")
     Call<Void> updateTodo(@Path("id") int id, @Body TodoModel todo);
+
+    @GET("todoapps/{id}")
+    Call<TodoModel> getTodoById(@Path("id") int id);
+
+
 }
