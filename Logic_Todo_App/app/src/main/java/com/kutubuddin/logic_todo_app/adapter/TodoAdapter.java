@@ -18,37 +18,8 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
 
     private List<TodoModel> todoList;
     private Context context;
-
-
-    // ViewHolder to hold references to views in each item
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textTitle, textDescription, textTodotype, textPriority, textDate;
-        View deleteButton;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            textTitle = itemView.findViewById(R.id.title);
-            textDescription = itemView.findViewById(R.id.description);
-            textTodotype = itemView.findViewById(R.id.todoType);
-            textPriority = itemView.findViewById(R.id.priority);
-            textDate = itemView.findViewById(R.id.date);
-            deleteButton = itemView.findViewById(R.id.deleteButton);
-        }
-    }
-
-
-
     private OnDeleteClickListener onDeleteClickListener;
 
-    @Override
-    public int getItemCount() {
-        return todoList.size();
-    }
-
-    // Interface for handling delete button click events
-    public interface OnDeleteClickListener {
-        void onDeleteClick(int id);
-    }
     // Constructor with listener for delete action
     public TodoAdapter(List<TodoModel> todoList, Context context, OnDeleteClickListener onDeleteClickListener) {
         this.todoList = todoList;
@@ -76,5 +47,31 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
 
         // Set up the delete button click listener
         holder.deleteButton.setOnClickListener(v -> onDeleteClickListener.onDeleteClick(todo.getId()));
+    }
+
+    @Override
+    public int getItemCount() {
+        return todoList.size();
+    }
+
+    // Interface for handling delete button click events
+    public interface OnDeleteClickListener {
+        void onDeleteClick(int id);
+    }
+
+    // ViewHolder to hold references to views in each item
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView textTitle, textDescription, textTodotype, textPriority, textDate;
+        View deleteButton;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            textTitle = itemView.findViewById(R.id.title);
+            textDescription = itemView.findViewById(R.id.description);
+            textTodotype = itemView.findViewById(R.id.todoType);
+            textPriority = itemView.findViewById(R.id.priority);
+            textDate = itemView.findViewById(R.id.date);
+            deleteButton = itemView.findViewById(R.id.deleteButton);
+        }
     }
 }
