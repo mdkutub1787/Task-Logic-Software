@@ -19,25 +19,27 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
     private List<TodoModel> todoList;
     private Context context;
     private OnDeleteClickListener onDeleteClickListener;
+    private OnEditClickListener onEditClickListener;
 
-    // Constructor with listener for delete action
-    public TodoAdapter(List<TodoModel> todoList, Context context, OnDeleteClickListener onDeleteClickListener) {
+    // Constructor with listener for delete and edit actions
+    public TodoAdapter(List<TodoModel> todoList, Context context,
+                       OnDeleteClickListener onDeleteClickListener,
+                       OnEditClickListener onEditClickListener) {
         this.todoList = todoList;
         this.context = context;
         this.onDeleteClickListener = onDeleteClickListener;
+        this.onEditClickListener = onEditClickListener;
     }
 
     @NonNull
     @Override
     public TodoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Inflate the item layout for each Todo item
         View view = LayoutInflater.from(context).inflate(R.layout.todo_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        // Bind data to the views for each Todo item
         TodoModel todo = todoList.get(position);
         holder.textTitle.setText(todo.getTitel());
         holder.textDescription.setText(todo.getDescription());
@@ -47,6 +49,9 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
 
         // Set up the delete button click listener
         holder.deleteButton.setOnClickListener(v -> onDeleteClickListener.onDeleteClick(todo.getId()));
+
+        // Set up the edit button click listener
+        holder.editButton.setOnClickListener(v -> onEditClickListener.onEditClick(todo));
     }
 
     @Override
@@ -59,10 +64,14 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
         void onDeleteClick(int id);
     }
 
-    // ViewHolder to hold references to views in each item
+    // Interface for handling edit button click events
+    public interface OnEditClickListener {
+        void onEditClick(TodoModel todo);
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textTitle, textDescription, textTodotype, textPriority, textDate;
-        View deleteButton;
+        View deleteButton, editButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +81,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
             textPriority = itemView.findViewById(R.id.priority);
             textDate = itemView.findViewById(R.id.date);
             deleteButton = itemView.findViewById(R.id.deleteButton);
+            editButton = itemView.findViewById(R.id.editButton);
         }
     }
 }
